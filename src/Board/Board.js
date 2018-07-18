@@ -23,7 +23,7 @@ class Board extends Component {
   handleClick(i) {
     console.log('Click!');
     const squares = [...this.state.squares];
-    squares[i] = 'X';
+    squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
       squares: squares,
       xIsNext: !this.state.xIsNext
