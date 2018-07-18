@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import './Board.css';
 
-import '../Square/Square';
+import Square from '../Square/Square';
 
 class Board extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   renderSquare(i) {
     return <Square />;
   }
 
   render() {
     return (
-      <div>
+      <div className="game-board">
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}

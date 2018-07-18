@@ -1,4 +1,19 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font: 14px 'Century Gothic', Futura, sans-serif;
+}
+
+#root {
+  height: inherit;
+}
+
 .game {
+  height: 30em;
   display: flex;
   flex-direction: row;
+  margin: 20px;
 }
