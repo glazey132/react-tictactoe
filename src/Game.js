@@ -36,7 +36,9 @@ class Game extends Component {
   }
 
   jumpTo(move) {
+    console.log('move in jumpto ', move);
     this.setState({
+      selected: move,
       stepNumber: move,
       xIsNext: move % 2 ? false : true
     });
@@ -80,9 +82,22 @@ class Game extends Component {
 
     const moves = this.state.history.map((step, move) => {
       const desc = move ? `Move # ${move}` : `Game start`;
+      if (!winner && move === this.state.history.length - 1) {
+        return (
+          <li key={move}>
+            <a className="bold-a" href="#" onClick={() => this.jumpTo(move)}>
+              {desc}
+            </a>
+          </li>
+        );
+      }
       return (
         <li key={move}>
-          <a role="button" onClick={() => this.jumpTo(move)}>
+          <a
+            className={this.state.selected === move ? 'bold-a' : 'regular-a'}
+            href="#"
+            onClick={() => this.jumpTo(move)}
+          >
             {desc}
           </a>
         </li>

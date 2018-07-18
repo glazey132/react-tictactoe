@@ -22,3 +22,7 @@ html {
   flex: 1;
   margin-left: 20px;
 }
+
+.bold-a {
+  font-weight: bold;
+}
