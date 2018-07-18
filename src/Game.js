@@ -5,9 +5,10 @@ import './Game.css';
 class Game extends Component {
   render() {
     return (
-      <div className="Game">
-        <h1 className="Game-title">React Tic Tac Toe</h1>
-        <Board />
+      <div className="game">
+        <div className="game-board">
+          <Board />
+        </div>
       </div>
     );
   }
