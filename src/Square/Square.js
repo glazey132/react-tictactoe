@@ -3,7 +3,11 @@ import './Square.css';
 
 class Square extends Component {
   render() {
-    return <div className="square" />;
+    return (
+      <div className="square" onClick={() => this.props.onClick()}>
+        {this.props.value}
+      </div>
+    );
   }
 }
 

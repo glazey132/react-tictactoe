@@ -4,8 +4,18 @@ import './Board.css';
 import Square from '../Square/Square';
 
 class Board extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      squares: Array(9).fill(null)
+    };
+  }
   renderSquare(i) {
-    return <Square />;
+    return <Square value={this.state.squares[i] onClick={() => this.handleClick(i)}} />;
+  }
+
+  handleClick() {
+
   }
 
   render() {
