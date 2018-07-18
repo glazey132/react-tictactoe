@@ -18,7 +18,6 @@ class Game extends Component {
   }
 
   handleClick(i) {
-    console.log('this.state.selected on click ', this.state.selected);
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = [...current.squares];
