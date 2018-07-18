@@ -11,11 +11,19 @@ class Board extends Component {
     };
   }
   renderSquare(i) {
-    return <Square value={this.state.squares[i] onClick={() => this.handleClick(i)}} />;
+    return (
+      <Square
+        value={this.state.squares[i]}
+        onClick={() => this.handleClick(i)}
+      />
+    );
   }
 
-  handleClick() {
-
+  handleClick(i) {
+    console.log('Click!');
+    const squares = [...this.state.squares];
+    squares[i] = 'X';
+    this.setState({ squares: squares });
   }
 
   render() {
