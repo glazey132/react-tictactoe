@@ -12,11 +12,13 @@ class Game extends Component {
         }
       ],
       stepNumber: 0,
-      xIsNext: true
+      xIsNext: true,
+      selected: 0
     };
   }
 
   handleClick(i) {
+    console.log('this.state.selected on click ', this.state.selected);
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = [...current.squares];
@@ -25,6 +27,7 @@ class Game extends Component {
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
+      selected: this.state.selected + 1,
       stepNumber: history.length,
       history: history.concat([
         {
@@ -37,11 +40,19 @@ class Game extends Component {
 
   jumpTo(move) {
     console.log('move in jumpto ', move);
-    this.setState({
-      selected: move,
-      stepNumber: move,
-      xIsNext: move % 2 ? false : true
-    });
+    if (move === 0) {
+      this.setState({
+        selected: 0,
+        stepNumber: move,
+        xIsNext: move % 2 ? false : true
+      });
+    } else {
+      this.setState({
+        selected: move,
+        stepNumber: move,
+        xIsNext: move % 2 ? false : true
+      });
+    }
   }
 
   calculateWinner(squares) {
@@ -82,15 +93,6 @@ class Game extends Component {
 
     const moves = this.state.history.map((step, move) => {
       const desc = move ? `Move # ${move}` : `Game start`;
-      if (!winner && move === this.state.history.length - 1) {
-        return (
-          <li key={move}>
-            <a className="bold-a" href="#" onClick={() => this.jumpTo(move)}>
-              {desc}
-            </a>
-          </li>
-        );
-      }
       return (
         <li key={move}>
           <a
