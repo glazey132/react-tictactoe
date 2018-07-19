@@ -85,6 +85,7 @@ class Game extends Component {
     const winner = this.calculateWinner(current.squares);
     let status;
     if (winner) {
+      console.log('winner ', winner);
       status = `We have a winner: ${winner}`;
     } else {
       status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
