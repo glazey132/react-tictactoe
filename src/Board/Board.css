@@ -10,3 +10,7 @@
 .status {
   margin-bottom: 10px;
 }
+
+.won-square {
+  background-color: lime;
+}

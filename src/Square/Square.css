@@ -12,3 +12,7 @@
   text-align: center;
   width: 34px;
 }
+
+.square.selected {
+  background-color: lime;
+}
